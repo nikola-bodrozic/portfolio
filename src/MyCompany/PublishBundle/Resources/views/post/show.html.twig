@@ -1,24 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Post</h1>
+
+    <h1>{{ post.title }}</h1>
 
     <table>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ post.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ post.title }}</td>
-            </tr>
-            <tr>
-                <th>Text</th>
-                <td>{{ post.text }}</td>
-            </tr>
+        <tr>
+            <td>Published on: {% if post.created %}{{ post.created|date('Y-m-d H:i:s') }}{% endif %} </td>
+        </tr>
+        <tr>
+            <td>{{ post.text }}</td>
+        </tr>
         </tbody>
     </table>
+    <br><br>
+
 
     <ul>
         <li>

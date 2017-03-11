@@ -8,13 +8,15 @@
         {{ form_label(edit_form.title) }}
         {{ form_errors(edit_form.title) }}
         {{ form_widget(edit_form.title) }}
-
+        <br>
         {{ form_label(edit_form.text) }}
         {{ form_errors(edit_form.text) }}
         {{ form_widget(edit_form.text) }}
-
-        <input type="submit" value="Edit" />
+        <br>
+        <input type="submit" class="btn btn-primary"  value="Edit" />
     {{ form_end(edit_form) }}
+
+    <br>
 
     <ul>
         <li>
