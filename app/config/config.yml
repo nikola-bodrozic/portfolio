@@ -73,3 +73,10 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: MyCompany\PublishBundle\Entity\User
+
+# stof bundle
+stof_doctrine_extensions:
+    orm:
+        default:
+            #sluggable:   true
+            timestampable: true

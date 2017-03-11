@@ -3,11 +3,12 @@
 namespace MyCompany\PublishBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Post
  *
- * @ORM\Table(name="post")
+ * @ORM\Table(name="por_post")
  * @ORM\Entity(repositoryClass="MyCompany\PublishBundle\Repository\PostRepository")
  */
 class Post
@@ -35,6 +36,23 @@ class Post
      */
     private $text;
 
+    /**
+     * @var \DateTime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
+
+    /**
+     * @var \DateTime $updated
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(type="datetime")
+     */
+    private $updated;
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      * Get id
@@ -90,5 +108,21 @@ class Post
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }
