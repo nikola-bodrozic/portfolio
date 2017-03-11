@@ -35,7 +35,9 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-
+    # switch to boostrap forms
+    form:
+        resources: ['bootstrap_3_layout.html.twig']
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -71,8 +73,3 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: MyCompany\PublishBundle\Entity\User
-
-# Boostrap
-twig:
-    form:
-        resources: ['bootstrap_3_layout.html.twig']

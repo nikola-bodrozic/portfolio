@@ -54,7 +54,7 @@ class PostController extends Controller
 
         return $this->render('PublishBundle:post:new.html.twig', array(
             'post' => $post,
-            'form' => $form->createView(),
+            'new_form' => $form->createView(),
         ));
     }
 
