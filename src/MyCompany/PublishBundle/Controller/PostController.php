@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Post controller.
@@ -38,6 +39,7 @@ class PostController extends Controller
      * Creates a new post entity.
      *
      * @Route("/new", name="post_new")
+     * @Security("has_role('IS_AUTHENTICATED_FULLY')")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -80,6 +82,7 @@ class PostController extends Controller
      * Displays a form to edit an existing post entity.
      *
      * @Route("/{slug}/edit", name="post_edit")
+     * @Security("has_role('IS_AUTHENTICATED_FULLY')")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Post $post)
@@ -105,6 +108,7 @@ class PostController extends Controller
      * Deletes a post entity.
      *
      * @Route("/{slug}", name="post_delete")
+     * @Security("has_role('IS_AUTHENTICATED_FULLY')")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Post $post)
