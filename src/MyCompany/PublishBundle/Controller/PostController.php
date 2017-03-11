@@ -49,7 +49,7 @@ class PostController extends Controller
             $em->persist($post);
             $em->flush($post);
 
-            return $this->redirectToRoute('post_show', array('id' => $post->getId()));
+            return $this->redirectToRoute('post_show', array('slug' => $post->getSlug()));
         }
 
         return $this->render('PublishBundle:post:new.html.twig', array(
@@ -61,7 +61,7 @@ class PostController extends Controller
     /**
      * Finds and displays a post entity.
      *
-     * @Route("/{id}", name="post_show")
+     * @Route("/{slug}", name="post_show")
      * @Method("GET")
      */
     public function showAction(Post $post)
@@ -77,7 +77,7 @@ class PostController extends Controller
     /**
      * Displays a form to edit an existing post entity.
      *
-     * @Route("/{id}/edit", name="post_edit")
+     * @Route("/{slug}/edit", name="post_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Post $post)
@@ -89,7 +89,7 @@ class PostController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('post_edit', array('id' => $post->getId()));
+            return $this->redirectToRoute('post_edit', array('slug' => $post->getSlug()));
         }
 
         return $this->render('PublishBundle:post:edit.html.twig', array(
@@ -102,7 +102,7 @@ class PostController extends Controller
     /**
      * Deletes a post entity.
      *
-     * @Route("/{id}", name="post_delete")
+     * @Route("/{slug}", name="post_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Post $post)
@@ -129,7 +129,7 @@ class PostController extends Controller
     private function createDeleteForm(Post $post)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('post_delete', array('id' => $post->getId())))
+            ->setAction($this->generateUrl('post_delete', array('slug' => $post->getSlug())))
             ->setMethod('DELETE')
             ->getForm()
         ;

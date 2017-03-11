@@ -78,5 +78,5 @@ fos_user:
 stof_doctrine_extensions:
     orm:
         default:
-            #sluggable:   true
+            sluggable:   true
             timestampable: true

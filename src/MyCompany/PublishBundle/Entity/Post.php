@@ -52,6 +52,14 @@ class Post
      */
     private $updated;
 
+    /**
+     * Slug from title
+     *
+     * @ORM\Column(name="slug", unique=true)
+     * @Gedmo\Slug(fields={"title"}, updatable=false)
+     */
+    protected $slug;
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
@@ -124,5 +132,21 @@ class Post
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 }
