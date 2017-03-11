@@ -35,7 +35,7 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
-    # switch to boostrap forms
+    # switch to bootstrap forms
     form:
         resources: ['bootstrap_3_layout.html.twig']
 # Doctrine Configuration
@@ -80,6 +80,7 @@ stof_doctrine_extensions:
         default:
             sluggable:   true
             timestampable: true
+
 # knp pagination
 knp_paginator:
     page_range: 2                      # default page range used in pagination control

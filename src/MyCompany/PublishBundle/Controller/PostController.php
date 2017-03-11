@@ -23,7 +23,6 @@ class PostController extends Controller
      */
     public function indexAction(Request $request)
     {
-        ///////////////////////////////////////////
         $em    = $this->get('doctrine.orm.entity_manager');
         $dql   = "SELECT p FROM PublishBundle:Post p";
         $query = $em->createQuery($dql);
@@ -33,7 +32,6 @@ class PostController extends Controller
 
         // parameters to template
         return $this->render('PublishBundle:post:index.html.twig', array('pagination' => $pagination));
-        ///////////////////////////////////////////
     }
 
     /**
