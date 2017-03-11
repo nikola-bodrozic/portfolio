@@ -2,8 +2,9 @@
 
 {% block fos_user_content %}
 <div style="width: 30%" class="center-block">
+
     {% if error %}
-        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+        <div class="alert alert-danger" role="alert">{{ error|trans({}, 'FOSUserBundle') }}</div>
     {% endif %}
 
     <h2 class="form-signin-heading">Please sign in</h2>
