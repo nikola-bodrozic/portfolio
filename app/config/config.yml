@@ -71,3 +71,8 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: MyCompany\PublishBundle\Entity\User
+
+# Boostrap
+twig:
+    form:
+        resources: ['bootstrap_3_layout.html.twig']
