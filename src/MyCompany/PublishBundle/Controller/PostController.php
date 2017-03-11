@@ -21,15 +21,19 @@ class PostController extends Controller
      * @Route("/", name="post_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+        ///////////////////////////////////////////
+        $em    = $this->get('doctrine.orm.entity_manager');
+        $dql   = "SELECT p FROM PublishBundle:Post p";
+        $query = $em->createQuery($dql);
 
-        $posts = $em->getRepository('PublishBundle:Post')->findAll();
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate( $query, $request->query->getInt('page', 1), 2 );
 
-        return $this->render('PublishBundle:post:index.html.twig', array(
-            'posts' => $posts,
-        ));
+        // parameters to template
+        return $this->render('PublishBundle:post:index.html.twig', array('pagination' => $pagination));
+        ///////////////////////////////////////////
     }
 
     /**
