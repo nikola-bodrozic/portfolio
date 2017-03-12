@@ -8,6 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Post
  *
+ * @author Nikola Bodrozic
  * @ORM\Table(name="por_post")
  * @ORM\Entity(repositoryClass="MyCompany\PublishBundle\Repository\PostRepository")
  */

@@ -8,7 +8,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     *
+     * @Route("/", name="startpage")
+     * @Route("/{_locale}", name="startpage2")
      */
     public function indexAction()
     {

@@ -12,7 +12,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 /**
  * Post controller.
  *
- * @Route("/post")
+ * @author Nikola Bodrozic
+ * @Route("{_locale}/post")
  */
 class PostController extends Controller
 {
