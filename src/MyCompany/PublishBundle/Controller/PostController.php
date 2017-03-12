@@ -95,7 +95,7 @@ class PostController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-var_dump($post->getSlug());die;
+//var_dump($post->getSlug());die;
             return $this->redirectToRoute('post_edit', array('slug' => $post->getSlug()));
         }
 

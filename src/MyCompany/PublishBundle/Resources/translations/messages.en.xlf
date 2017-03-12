@@ -22,6 +22,18 @@
                 <source>Posts</source>
                 <target>Posts</target>
             </trans-unit>
+            <trans-unit id="Please_sign_in">
+                <source>Please sign in</source>
+                <target>Please sign in</target>
+            </trans-unit>
+            <trans-unit id="Title">
+                <source>Title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="Published">
+                <source>Published</source>
+                <target>Published</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

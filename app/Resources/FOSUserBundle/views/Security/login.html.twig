@@ -7,7 +7,7 @@
         <div class="alert alert-danger" role="alert">{{ error|trans({}, 'FOSUserBundle') }}</div>
     {% endif %}
 
-    <h2 class="form-signin-heading">Please sign in</h2>
+    <h2 class="form-signin-heading">{{ "Please sign in" | trans }}</h2>
     <form action="{{ path("fos_user_security_check") }}" class="form-signin" method="post">
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 

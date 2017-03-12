@@ -22,6 +22,26 @@
                 <source>Posts</source>
                 <target>Posts</target>
             </trans-unit>
+            <trans-unit id="Please_sign_in">
+                <source>Please sign in</source>
+                <target>Gelieve in te loggen</target>
+            </trans-unit>
+            <trans-unit id="Title">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="Published">
+                <source>Published</source>
+                <target>Gepubliceerde</target>
+            </trans-unit>
+            <trans-unit id="knp_paginator_next">
+                <source>Next</source>
+                <target>Volgende</target>
+            </trans-unit>
+            <trans-unit id="knp_paginator_prev">
+                <source>Previous</source>
+                <target>Voorgaand</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

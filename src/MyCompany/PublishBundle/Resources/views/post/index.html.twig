@@ -9,9 +9,9 @@
         <thead>
             <tr>
                 <th>{{ knp_pagination_sortable(pagination, 'Id', 'p.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'Title', 'p.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Title' | trans, 'p.title') }}</th>
                 <th>Text</th>
-                <th>{{ knp_pagination_sortable(pagination, 'Published', 'p.updated') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Published' | trans, 'p.updated') }}</th>
                 <th>Actions</th>
             </tr>
         </thead>
