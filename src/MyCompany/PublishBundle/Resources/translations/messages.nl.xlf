@@ -6,6 +6,22 @@
                 <source>publish.List_messages</source>
                 <target>Berichten lijst</target>
             </trans-unit>
+            <trans-unit id="home_page">
+                <source>Homepage</source>
+                <target>Startpagina</target>
+            </trans-unit>
+            <trans-unit id="text_on_home_page">
+                <source>text_on_home_page</source>
+                <target>Portfolio voor Symfony. Dit project laat zien hoe FOSUser, KnpPaginator bundel gebruiken. Ik StofDoctrineExtensionsBundle toegevoegd timestampable en slugable</target>
+            </trans-unit>
+            <trans-unit id="language">
+                <source>Language</source>
+                <target>Taal</target>
+            </trans-unit>
+           <trans-unit id="Posts">
+                <source>Posts</source>
+                <target>Posts</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

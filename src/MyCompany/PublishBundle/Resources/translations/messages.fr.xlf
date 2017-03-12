@@ -6,6 +6,22 @@
                 <source>publish.List_messages</source>
                 <target>Liste des messages</target>
             </trans-unit>
+            <trans-unit id="home_page">
+                <source>Homepage</source>
+                <target>Page d'accueil</target>
+            </trans-unit>
+            <trans-unit id="text_on_home_page">
+                <source>text_on_home_page</source>
+                <target>Portfolio pour Symfony. Ce projet montre comment utiliser FOSUser, KnpPaginator bundle. J'ai ajouté StofDoctrineExtensionsBundle avec timestampable et slugable</target>
+            </trans-unit>
+            <trans-unit id="language">
+                <source>Language</source>
+                <target>Langue</target>
+            </trans-unit>
+           <trans-unit id="Posts">
+                <source>Posts</source>
+                <target>Des postes</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ path('startpage') }}">Home</a>
+            <a class="navbar-brand" href="{{ path('startpage') }}">{{ 'Homepage' | trans }}</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -34,7 +34,7 @@
                 {% endif %}
                 <li>
                 <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Language<b class="caret"></b></a>
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ 'Language' | trans }}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li{% if loc =="en" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"en"}) }}">English</a></li>
                         <li{% if loc =="fr" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"fr"}) }}">French</a></li>

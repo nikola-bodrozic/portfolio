@@ -1,8 +1,8 @@
 {% extends '::base.html.twig' %}
 
-{% block title %} {{ "Home Page" }} {% endblock %}
+{% block title %} {{ "Homepage" | trans }} {% endblock %}
 
 {% block body %}
-    <h1>{{ "Home Page" | trans }}</h1>
-    <p>{{ "Portfolio for Symfony. This project shows how to use FOSUer, KnpPaginator bundle. I added StofDoctrineExtensionsBundle with timestampable and slugable" | trans}}</p>
+    <h1>{{ "Homepage" | trans }}</h1>
+    <p>{{ 'text_on_home_page' | trans}}</p>
  {% endblock %}
