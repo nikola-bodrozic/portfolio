@@ -1,4 +1,7 @@
 {% set loc = app.request.getLocale() %}
+{% set pag = app.request.attributes.get('_route') %}
+{#dump(pag) #}
+
 <nav class="navbar navbar-default"  role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -8,7 +11,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ path('startpage') }}">{{ 'Homepage' | trans }}</a>
+            <a class="navbar-brand" href="{{ path("startpage") }}">{{ 'Homepage' | trans }}</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -36,9 +39,9 @@
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ 'Language' | trans }}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li{% if loc =="en" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"en"}) }}">English</a></li>
-                        <li{% if loc =="fr" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"fr"}) }}">French</a></li>
-                        <li{% if loc =="nl" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"nl"}) }}">Duch</a></li>
+                        <li{% if loc =="en" %} class='active'{% endif %}><a href="{{ path(pag, {"_locale":"en"}) }}">English</a></li>
+                        <li{% if loc =="fr" %} class='active'{% endif %}><a href="{{ path(pag, {"_locale":"fr"}) }}">French</a></li>
+                        <li{% if loc =="nl" %} class='active'{% endif %}><a href="{{ path(pag, {"_locale":"nl"}) }}">Duch</a></li>
                     </ul>
                 </li>
             </ul>
