@@ -13,12 +13,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
  * Post controller.
  *
  * @author Nikola Bodrozic
- * @Route("{_locale}/post")
+ * @Route("{_locale}/post", defaults={"_locale": "en"}, requirements={"_locale": "en|fr|nl" })
  */
 class PostController extends Controller
 {
     /**
      * Lists all post entities.
+     *
      *
      * @Route("/", name="post_index")
      * @Method("GET")
