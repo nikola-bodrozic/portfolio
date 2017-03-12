@@ -36,9 +36,9 @@
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Language<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li{% if loc =="en" %} class='active'{% endif %}><a href="{{ path(app.request.attributes.get('_route'), {"_locale":"en"}) }}">English</a></li>
-                        <li{% if loc =="fr" %} class='active'{% endif %}><a href="{{ path(app.request.attributes.get('_route'), {"_locale":"fr"}) }}">French</a></li>
-                        <li{% if loc =="nl" %} class='active'{% endif %}><a href="{{ path(app.request.attributes.get('_route'), {"_locale":"nl"}) }}">Duch</a></li>
+                        <li{% if loc =="en" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"en"}) }}">English</a></li>
+                        <li{% if loc =="fr" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"fr"}) }}">French</a></li>
+                        <li{% if loc =="nl" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"nl"}) }}">Duch</a></li>
                     </ul>
                 </li>
             </ul>

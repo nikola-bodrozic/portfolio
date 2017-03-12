@@ -41,7 +41,7 @@ class PostController extends Controller
      * Creates a new post entity.
      *
      * @Route("/new", name="post_new")
-     * @Security("has_role('IS_AUTHENTICATED_FULLY')")
+     * @Security("has_role('ROLE_USER')")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -84,7 +84,7 @@ class PostController extends Controller
      * Displays a form to edit an existing post entity.
      *
      * @Route("/{slug}/edit", name="post_edit")
-     * @Security("has_role('IS_AUTHENTICATED_FULLY')")
+     * @Security("has_role('ROLE_USER')")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Post $post)
@@ -95,7 +95,7 @@ class PostController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+var_dump($post->getSlug());die;
             return $this->redirectToRoute('post_edit', array('slug' => $post->getSlug()));
         }
 
@@ -110,7 +110,7 @@ class PostController extends Controller
      * Deletes a post entity.
      *
      * @Route("/{slug}", name="post_delete")
-     * @Security("has_role('IS_AUTHENTICATED_FULLY')")
+     * @Security("has_role('ROLE_USER')")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Post $post)
