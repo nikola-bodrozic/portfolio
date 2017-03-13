@@ -23,7 +23,7 @@ security:
                 default_target_path: post_index
             logout:
                 path: fos_user_security_logout
-                target: startpage
+                target: logedout
             anonymous:    true
             remember_me:
                 key:      "%secret%"

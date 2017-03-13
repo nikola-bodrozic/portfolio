@@ -13,21 +13,20 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
  * Post controller.
  *
  * @author Nikola Bodrozic
- * @Route("{_locale}/post", defaults={"_locale": "en"}, requirements={"_locale": "en|fr|nl" })
+ *
  */
 class PostController extends Controller
 {
     /**
      * Lists all post entities.
      *
-     *
-     * @Route("/", name="post_index")
+     * @Route("/{_locale}/post/list", name="post_index", defaults={"_locale": "en"}, requirements={"_locale": "en|fr|nl" })
      * @Method("GET")
      */
     public function indexAction(Request $request)
     {
         $em    = $this->get('doctrine.orm.entity_manager');
-        $dql   = "SELECT p FROM PublishBundle:Post p";
+        $dql   = "SELECT p FROM PublishBundle:Post p ORDER BY p.id DESC";
         $query = $em->createQuery($dql);
 
         $paginator  = $this->get('knp_paginator');
@@ -40,7 +39,7 @@ class PostController extends Controller
     /**
      * Creates a new post entity.
      *
-     * @Route("/new", name="post_new")
+     * @Route("/new", name="post_new", defaults={"_locale": "en"}, requirements={"_locale": "en|fr|nl" })
      * @Security("has_role('ROLE_USER')")
      * @Method({"GET", "POST"})
      */
@@ -67,29 +66,29 @@ class PostController extends Controller
     /**
      * Finds and displays a post entity.
      *
-     * @Route("/{slug}", name="post_show")
+     * @Route("/{_locale}/{slug}/show", name="post_show", defaults={"_locale": "en"}, requirements={"_locale": "en|fr|nl" })
      * @Method("GET")
      */
-    public function showAction(Post $post)
+    public function showAction($slug)
     {
-        $deleteForm = $this->createDeleteForm($post);
-
+        $em = $this->getDoctrine()->getManager();
+        $post = $em->getRepository("PublishBundle:Post")
+                    ->findOneBy(['slug'=>$slug]);
         return $this->render('PublishBundle:post:show.html.twig', array(
             'post' => $post,
-            'delete_form' => $deleteForm->createView(),
+            'slug' => $slug
         ));
     }
 
     /**
      * Displays a form to edit an existing post entity.
      *
-     * @Route("/{slug}/edit", name="post_edit")
+     * @Route("/{_locale}/{slug}/edit", name="post_edit", defaults={"_locale": "en"}, requirements={"_locale": "en|fr|nl" })
      * @Security("has_role('ROLE_USER')")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Post $post)
+    public function editAction(Request $request, Post $post, $slug)
     {
-        $deleteForm = $this->createDeleteForm($post);
         $editForm = $this->createForm('MyCompany\PublishBundle\Form\PostType', $post);
         $editForm->handleRequest($request);
 
@@ -102,7 +101,6 @@ class PostController extends Controller
         return $this->render('PublishBundle:post:edit.html.twig', array(
             'post' => $post,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -134,10 +132,10 @@ class PostController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Post $post)
+    private function createDeleteForm($slug)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('post_delete', array('slug' => $post->getSlug())))
+            ->setAction($this->generateUrl('post_delete', array('slug' => $slug)))
             ->setMethod('DELETE')
             ->getForm()
         ;

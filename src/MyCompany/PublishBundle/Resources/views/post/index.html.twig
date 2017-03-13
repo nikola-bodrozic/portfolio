@@ -19,7 +19,7 @@
         {% for post in pagination %}
             <tr>
                 <td><a href="{{ path('post_show', { 'slug': post.slug }) }}">{{ post.id }}</a></td>
-                <td>{{ post.title }}</td>
+                <td><a href="{{ path('post_show', { 'slug': post.slug }) }}">{{ post.title }}</a> </td>
                 <td>{{ post.text }}</td>
                 <td>{{ post.updated | date('d.M.Y') }}  </td>
                 <td>
