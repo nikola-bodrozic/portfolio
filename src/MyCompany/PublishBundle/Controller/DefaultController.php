@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/{_locale}", name="runner")
+     * @Route("/{_locale}", name="runner", defaults={"_locale" = "en"}, requirements={"_locale": "en|fr|nl"})
      */
     public function run(){
         return $this->render('PublishBundle:Default:index.html.twig');
