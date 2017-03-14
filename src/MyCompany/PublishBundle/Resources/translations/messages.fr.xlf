@@ -12,7 +12,7 @@
             </trans-unit>
             <trans-unit id="text_on_home_page">
                 <source>text_on_home_page</source>
-                <target>Portfolio pour Symfony. Ce projet montre comment utiliser FOSUser, KnpPaginator bundle. J'ai ajouté StofDoctrineExtensionsBundle avec timestampable et slugable</target>
+                <target><![CDATA[Ce site Symfony montre comment j'utilise <strong>FOSUser</strong>, <strong>KnpPaginator</strong> bundle et <br><strong>StofDoctrineExtensions</strong> avec <strong>timestampable</strong> et <strong>slugable</strong>. <br><br>Le site est traduit en <strong>_locale</strong> en 3 langues - anglais, français et duch.]]></target>
             </trans-unit>
             <trans-unit id="language">
                 <source>Language</source>
@@ -42,6 +42,14 @@
                 <source>Previous</source>
                 <target>Précédent</target>
             </trans-unit>
+            <trans-unit id="Published_on">
+                <source>Published on</source>
+                <target>Publié le</target>
+            </trans-unit>          
+            <trans-unit id="read_more">
+                <source>read more</source>
+                <target>Lire la suite</target>
+            </trans-unit>       
         </body>
     </file>
 </xliff>

@@ -1,14 +1,18 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ parent() }} :: {{ post.title }}{% endblock %}
+{% block meta %}
+    {{ parent() }}
+{% endblock %}
+
 {% block body %}
 
     <h1>{{ post.title }}</h1>
-
+<br>
+<p>{{ "Published on" | trans }}: {% if post.created %}{{ post.created|date('Y-m-d H:i:s') }}{% endif %}</p>
+<br>
     <table>
         <tbody>
-        <tr>
-            <td>Published on: {% if post.created %}{{ post.created|date('Y-m-d H:i:s') }}{% endif %} </td>
-        </tr>
         <tr>
             <td>{{ post.text }}</td>
         </tr>

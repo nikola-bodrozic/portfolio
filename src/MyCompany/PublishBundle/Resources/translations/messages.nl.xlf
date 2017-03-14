@@ -12,7 +12,7 @@
             </trans-unit>
             <trans-unit id="text_on_home_page">
                 <source>text_on_home_page</source>
-                <target>Portfolio voor Symfony. Dit project laat zien hoe FOSUser, KnpPaginator bundel gebruiken. Ik StofDoctrineExtensionsBundle toegevoegd timestampable en slugable</target>
+                <target><![CDATA[Deze Symfony site laat zien hoe gebruik ik <strong>FOSUser</strong>, <strong>KnpPaginator</strong> bundel en <br><strong>StofDoctrineExtensions</strong> bundelen met <strong>timestampable</strong> en <strong>slugable</strong>. <br><br>De site is vertaald met behulp van <strong>_locale</strong> in 3 talen - Engels, Frans en Duch.]]></target>
             </trans-unit>
             <trans-unit id="language">
                 <source>Language</source>
@@ -42,6 +42,14 @@
                 <source>Previous</source>
                 <target>Voorgaand</target>
             </trans-unit>
+            <trans-unit id="Published_on">
+                <source>Published on</source>
+                <target>gepubliceerd op</target>
+            </trans-unit>         
+            <trans-unit id="read_more">
+                <source>read more</source>
+                <target>Lees verder</target>
+            </trans-unit>               
         </body>
     </file>
 </xliff>

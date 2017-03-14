@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ parent() }} :: List posts{% endblock %}
+{% block meta %}
+    {{ parent() }}
+{% endblock %}
+
 {% block body %}
     <h1>{{ 'publish.List_messages' | trans }}</h1>
         <div class="count">
@@ -20,7 +25,7 @@
             <tr>
                 <td><a href="{{ path('post_show', { 'slug': post.slug }) }}">{{ post.id }}</a></td>
                 <td><a href="{{ path('post_show', { 'slug': post.slug }) }}">{{ post.title }}</a> </td>
-                <td>{{ post.text }}</td>
+                <td>{{ post.text | slice(0,50) }} ...  <a href="{{ path('post_show', { 'slug': post.slug }) }}">{{ "read more" | trans }}</a></td>
                 <td>{{ post.updated | date('d.M.Y') }}  </td>
                 <td>
                     <ul>

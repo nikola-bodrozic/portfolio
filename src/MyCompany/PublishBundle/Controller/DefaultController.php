@@ -19,8 +19,8 @@ class DefaultController extends Controller
     public function run(){
         return $this->render('PublishBundle:Default:index.html.twig');
     }
+
     /**
-     *
      * @Route("/diff/{_locale}/{last}/{slug}", name="startpage", defaults={"_locale" = "en"}, requirements={"_locale": "en|fr|nl"})
      */
     public function indexAction($last, $_locale, $slug = "")
@@ -32,7 +32,6 @@ class DefaultController extends Controller
     }
 
     /**
-     *
      * @Route("/diff2/{_locale}/ind/", name="startpage3", defaults={"_locale" = "en"}, requirements={"_locale": "en|fr|nl"})
      */
     public function indAction()

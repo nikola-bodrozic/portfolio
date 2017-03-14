@@ -1,8 +1,11 @@
 {% extends '::base.html.twig' %}
 
 {% block title %} {{ "Homepage" | trans }} {% endblock %}
+{% block meta %}
+	{{ parent() }}
+{% endblock %}
 
 {% block body %}
     <h1>{{ "Homepage" | trans }}</h1>
-    <p>{{ 'text_on_home_page' | trans}}</p>
+    <p>{{ 'text_on_home_page' | trans | raw}}</p>
  {% endblock %}
