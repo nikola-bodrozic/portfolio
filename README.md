@@ -10,7 +10,7 @@ Symfony portfolio
 ## Deployment on test environment
 * `cd portfolio/`
 * `composer install`
-* `php app/console doctrine:schema:create --dump-sql`
+* `php app/console doctrine:schema:create --force`
 * `php app/console server:run 0.0.0.0:8000`
 * open browser at `localhost:8000`
 
