@@ -10,10 +10,6 @@ security:
         ROLE_ADMIN:       ROLE_USER
 
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
         main:
             form_login:
                 login_path: fos_user_security_login
@@ -28,7 +24,3 @@ security:
             remember_me:
                 key:      "%secret%"
                 lifetime: 604800 # 1 week in seconds
-
-    access_control:
-        - { path: ^/[a-z]+/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/[a-z]+/register, role: IS_AUTHENTICATED_ANONYMOUSLY }

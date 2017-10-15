@@ -1,18 +1,21 @@
-Symfony portfolio
-==============
-
-## Description
-* Visitors can register or view posts
-* Registered visitors can modify or create new posts
-* I created this site with **FOSUser**, **KnpPaginator** and **StofDoctrineExtensions** bundle with **timestampable** and **slugable**.
-* I also translated site in 3 languages using **_locale**.
+Symfony blogging platform
+=========================
 
 ## Deployment on test environment
+* `git clone https://github.com/nikola-bodrozic/portfolio.git`
 * `cd portfolio/`
 * `composer install`
 * `php app/console doctrine:schema:create --force`
-* `php app/console server:run 0.0.0.0:8000`
+* `php app/console server:run 127.0.0.1:8000`
 * open browser at `localhost:8000`
 
-create `testuser` with password `123` in console
-* `php app/console fos:user:create testuser test@example.com 123`
+in console create user **admin** with password **123** and assign `ROLE_ADMIN`
+* `php app/console fos:user:create admin admin@example.com 123`
+* `php app/console fos:user:promote admin ROLE_ADMIN`
+* `mysql -u username -p db_name < database.sql`
+
+## Description
+* Admin creates users
+* Users create/modify/delete posts
+* I created this site with **FOSUser**, **KnpPaginator** and **StofDoctrineExtensions** bundle with **timestampable** and **slugable**.
+* I also translated site in 3 languages using **_locale**.
