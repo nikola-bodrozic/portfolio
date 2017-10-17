@@ -6,13 +6,13 @@ Symfony blogging platform
 * `cd portfolio/`
 * `composer install`
 * `php app/console doctrine:schema:create --force`
+* `mysql -u root -p db_name < database.sql`
 * `php app/console server:run 127.0.0.1:8000`
-* open browser at `localhost:8000`
+* open browser at `http://localhost:8000`
 
 in console create user **admin** with password **123** and assign `ROLE_ADMIN`
 * `php app/console fos:user:create admin admin@example.com 123`
 * `php app/console fos:user:promote admin ROLE_ADMIN`
-* `mysql -u username -p db_name < database.sql`
 
 ## Description
 * Admin creates users
