@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} :: Forbidden page
+{% endblock %}
+
+
+{% block body %}
+    <div class="alert alert-warning">
+      <strong>Warning!</strong> Only admin has access to this page.
+    </div>
+{% endblock %}

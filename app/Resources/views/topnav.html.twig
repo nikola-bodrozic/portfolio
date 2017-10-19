@@ -23,18 +23,16 @@
                         {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
                     </p>
                     <li>
-                        <a href="{{ path('fos_user_security_logout') }}">
-                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                        </a>
+                        <a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a>
                     </li>
                 {% else %}
                     <li>
                         <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                     </li>
+                {% endif %}
                     <li>
                         <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
                     </li>
-                {% endif %}
                 <li>
                 <li class="dropdown">
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">{{ 'Language' | trans }}<b class="caret"></b></a>
@@ -42,7 +40,7 @@
 
             <li{% if loc =="en" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"en", "last":pag, "slug":pag2 }) }}">English</a></li>
             <li{% if loc =="fr" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"fr", "last":pag, "slug":pag2 }) }}">French</a></li>
-            <li{% if loc =="nl" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"nl", "last":pag, "slug":pag2 }) }}">Duch</a></li>
+            <li{% if loc =="nl" %} class='active'{% endif %}><a href="{{ path('startpage', {"_locale":"nl", "last":pag, "slug":pag2 }) }}">Dutch</a></li>
 
                     </ul>
                 </li>

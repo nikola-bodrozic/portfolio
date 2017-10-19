@@ -12,7 +12,7 @@
             </trans-unit>
             <trans-unit id="text_on_home_page">
                 <source>text_on_home_page</source>
-                <target><![CDATA[This Symfony site shows how I use <strong>FOSUser</strong>, <strong>KnpPaginator</strong> bundle and<br> <strong>StofDoctrineExtensions</strong> bundle with <strong>timestampable</strong> and <strong>slugable</strong>.<br><br> The site is translated using <strong>_locale</strong> in 3 languages - english, french and duch.]]></target>
+                <target><![CDATA[This Symfony site shows how I use <strong>FOSUser</strong>, <strong>KnpPaginator</strong> bundle and<br> <strong>StofDoctrineExtensions</strong> bundle with <strong>timestampable</strong> and <strong>slugable</strong>.<br><br> The site is translated using <strong>_locale</strong> in 3 languages - english, french and dutch.]]></target>
             </trans-unit>
             <trans-unit id="language">
                 <source>Language</source>
