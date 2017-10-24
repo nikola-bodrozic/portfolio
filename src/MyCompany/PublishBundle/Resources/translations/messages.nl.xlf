@@ -6,6 +6,10 @@
                 <source>publish.List_messages</source>
                 <target>Berichten lijst</target>
             </trans-unit>
+            <trans-unit id="publish_login">            
+                <source>publish.login</source>
+                <target>login</target>                
+            </trans-unit>            
             <trans-unit id="home_page">
                 <source>Homepage</source>
                 <target>Startpagina</target>
@@ -49,7 +53,15 @@
             <trans-unit id="read_more">
                 <source>read more</source>
                 <target>Lees verder</target>
-            </trans-unit>               
+            </trans-unit> 
+            <trans-unit id="admin_warn_1">
+                <source>admin_warn_1</source>
+                <target>Alleen admin heeft toegang tot deze pagina. Alsjeblieft </target>
+            </trans-unit>          
+            <trans-unit id="admin_warn_2">
+                <source>admin_warn_2</source>
+                <target>met referenties admin / 123</target>
+            </trans-unit>                                 
         </body>
     </file>
 </xliff>

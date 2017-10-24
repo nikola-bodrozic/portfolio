@@ -7,6 +7,6 @@
 
 {% block body %}
     <div class="alert alert-warning">
-      <strong>Warning!</strong> Only admin has access to this page.
+		{{ 'admin_warn_1' | trans }}<a href="{{ path('fos_user_security_login') }}">{{ 'publish.login' | trans }}</a> {{ 'admin_warn_2' | trans }}
     </div>
 {% endblock %}

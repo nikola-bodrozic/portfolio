@@ -6,6 +6,10 @@
                 <source>publish.List_messages</source>
                 <target>List messages</target>
             </trans-unit>
+            <trans-unit id="publish_login">            
+                <source>publish.login</source>
+                <target>login</target>                
+            </trans-unit>
             <trans-unit id="home_page">
                 <source>Homepage</source>
                 <target>Homepage</target>
@@ -41,7 +45,15 @@
             <trans-unit id="read_more">
                 <source>read more</source>
                 <target>read more</target>
-            </trans-unit>                      
+            </trans-unit> 
+            <trans-unit id="admin_warn_1">
+                <source>admin_warn_1</source>
+                <target>Only admin has access to this page. Please </target>
+            </trans-unit>          
+            <trans-unit id="admin_warn_2">
+                <source>admin_warn_2</source>
+                <target>with credentials admin / 123</target>
+            </trans-unit>                                        
         </body>
     </file>
 </xliff>
