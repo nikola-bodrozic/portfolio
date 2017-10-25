@@ -10,4 +10,5 @@ class PublishBundle extends Bundle
     {
         return 'FOSUserBundle';
     }	
+   
 }
