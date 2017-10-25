@@ -1,16 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ parent() }} ::  Search result{% endblock %}
+
 {% block meta %}
     {{ parent() }}
 {% endblock %}
 
 {% block body %}
-    {{ dump(searchRes) }}
 
-    <ul>
+    <dl>
     {% for res in searchRes %}
-        <li>{{ dump(res.score) }}</li>
+	    {% if res.score != 0 %}
+	        <dt>{{ res[0].title }}</dt>
+	        <dd>{{ res[0].text }}</dd>
+	    {% endif %}
     {% endfor %}
-</ul>
+	</dl>
 {% endblock %}
