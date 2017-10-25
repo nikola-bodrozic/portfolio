@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block body %}
-
+	{{ dump (what)}}
     <dl>
     {% for res in searchRes %}
 	    {% if res.score != 0 %}
