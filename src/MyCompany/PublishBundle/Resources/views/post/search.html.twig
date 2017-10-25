@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} ::  Search result{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+	{{ dump (what)}}
+    <dl>
+    {% for res in searchRes %}
+	    {% if res.score != 0 %}
+	        <dt>{{ res[0].title }}</dt>
+	        <dd>{{ res[0].text }}</dd>
+	    {% endif %}
+    {% endfor %}
+	</dl>
+{% endblock %}

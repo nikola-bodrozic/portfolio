@@ -3,7 +3,7 @@
 namespace MyCompany\PublishBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-
+use MyCompany\PublishBundle\Entity\Post;
 /**
  * PostRepository
  *
@@ -12,4 +12,5 @@ use Doctrine\ORM\EntityRepository;
  */
 class PostRepository extends EntityRepository
 {
+
 }

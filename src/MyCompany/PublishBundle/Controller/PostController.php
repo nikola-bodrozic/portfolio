@@ -34,6 +34,38 @@ class PostController extends Controller
 
         // parameters to template
         return $this->render('PublishBundle:post:index.html.twig', array('pagination' => $pagination));
+
+
+    }
+
+    /**
+     * MySQL Match Agains in Natural Mode
+     *
+     * @Route("/{_locale}/post/match", name="post_match", defaults={"_locale": "en"}, requirements={"_locale": "en|fr|nl" })
+     * @Method("POST")
+     */
+    public function matchAction(Request $request)
+    {       
+        $keyWords = $request->request->get('term');
+        $keyWords = trim($keyWords);
+        $keyWords = explode(' ', $keyWords);
+
+        $fts = "";
+
+        foreach($keyWords as $k) {
+            $fts .= "'".$k."',";
+        }
+        $fts = substr($fts, 0, -1);
+
+        $repository = $this->getDoctrine()->getRepository(Post::class);
+        $result = $repository->createQueryBuilder('p')
+            ->addSelect("MATCH_AGAINST (p.title, p.text, :searchterm 'IN NATURAL MODE') as score")
+            ->setParameter('searchterm', $fts)
+            ->orderBy('score', 'desc')
+            ->getQuery()
+            ->getResult();  
+
+        return $this->render('PublishBundle:post:search.html.twig', array('searchRes' => $result, 'what'=> $keyWords));                                      
     }
 
     /**
