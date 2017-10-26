@@ -11,8 +11,9 @@
     <dl>
     {% for res in searchRes %}
 	    {% if res.score != 0 %}
-	        <dt>{{ res[0].title }}</dt>
-	        <dd>{{ res[0].text }}</dd>
+	        <dt><h3>{{ res[0].title | raw }}</h3></dt>
+	        <dd>{{ res[0].text | raw }}</dd>
+	        <hr>
 	    {% endif %}
     {% endfor %}
 	</dl>

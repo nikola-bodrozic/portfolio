@@ -65,8 +65,38 @@ class PostController extends Controller
             ->getQuery()
             ->getResult();  
 
+        $this->hiLite($keyWords, $result);
         return $this->render('PublishBundle:post:search.html.twig', array('searchRes' => $result, 'what'=> $keyWords));                                      
     }
+
+    /**
+     * Sanitize input and highligt the string in title and text with keywords
+     * 
+     * @param $kw array of keywords
+     * @param $result array with Post objects and score for each object
+     *
+     * @return $result 
+     */
+    private function hiLite($kw, &$result) {
+        // Loop through $result array
+        foreach ($result as $key => $value) {
+            // modify Post objects
+            for ($i=0; $i < count($kw) ; $i++) {
+                // sanitize input
+                $kw[$i] = htmlspecialchars($kw[$i], ENT_QUOTES);
+                // strip slashes for preg_replace
+                $kw[$i] = str_replace(array('/', '\\'), '', $kw[$i]);
+
+                // highlight title
+                $t = preg_replace('/'.$kw[$i].'/i', '<strong class="redtext">$0</strong>', $value[0]->getTitle());
+                $value[0]->setTitle($t);
+                // highlight text
+                $t = preg_replace('/'.$kw[$i].'/i', '<strong class="redtext">$0</strong>', $value[0]->getText());
+                $value[0]->setText($t);                
+            }
+        }
+        return $result;
+    }    
 
     /**
      * Creates a new post entity.
@@ -126,7 +156,6 @@ class PostController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-//var_dump($post->getSlug());die;
             return $this->redirectToRoute('post_edit', array('slug' => $post->getSlug()));
         }
 
