@@ -34,8 +34,6 @@ class PostController extends Controller
 
         // parameters to template
         return $this->render('PublishBundle:post:index.html.twig', array('pagination' => $pagination));
-
-
     }
 
     /**
@@ -189,7 +187,7 @@ class PostController extends Controller
     /**
      * Creates a form to delete a post entity.
      *
-     * @param Post $post The post entity
+     * @param String $slug The post entity
      *
      * @return \Symfony\Component\Form\Form The form
      */

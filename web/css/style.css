@@ -7,3 +7,12 @@
 .redtext{
 	background-color: yellow;
 }
+
+#map { 
+    height: 200px; width: 200px; 
+}
+
+.map-left{
+    float:left;
+    margin-right: 25px;
+}

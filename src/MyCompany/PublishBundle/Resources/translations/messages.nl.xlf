@@ -10,6 +10,10 @@
                 <source>publish.login</source>
                 <target>login</target>                
             </trans-unit>            
+            <trans-unit id="back_to_list">
+                <source>publish.back_to_list</source>
+                <target>Terug naar de lijst</target>
+            </trans-unit>             
             <trans-unit id="home_page">
                 <source>Homepage</source>
                 <target>Startpagina</target>

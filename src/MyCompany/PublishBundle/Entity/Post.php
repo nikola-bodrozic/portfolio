@@ -4,12 +4,14 @@ namespace MyCompany\PublishBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\ORM\Mapping\Index;
 
 /**
  * Post
  *
  * @author Nikola Bodrozic
- * @ORM\Table(name="por_post")
+
+ * @ORM\Table(name="por_post", indexes={@Index(name="title_text_fulltext", columns={"title", "text"}, flags={"fulltext"})})
  * @ORM\Entity(repositoryClass="MyCompany\PublishBundle\Repository\PostRepository")
  */
 class Post
@@ -61,6 +63,12 @@ class Post
      */
     protected $slug;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="latLang", type="string", nullable=true)
+     */
+    private $latLang;    
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
@@ -149,5 +157,57 @@ class Post
     public function setSlug($slug)
     {
         $this->slug = $slug;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     *
+     * @return Post
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return Post
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Set latLang
+     *
+     * @param string $latLang
+     *
+     * @return Post
+     */
+    public function setLatLang($latLang)
+    {
+        $this->latLang = $latLang;
+
+        return $this;
+    }
+
+    /**
+     * Get latLang
+     *
+     * @return string
+     */
+    public function getLatLang()
+    {
+        return $this->latLang;
     }
 }

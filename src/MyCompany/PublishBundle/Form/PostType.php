@@ -5,6 +5,7 @@ namespace MyCompany\PublishBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class PostType extends AbstractType
 {
@@ -13,7 +14,12 @@ class PostType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('text');
+        // label and attribute in buildForm Method
+        $builder
+                ->add('title')
+                ->add('text')
+                ->add('latLang', TextType::class, ['label' => 'Enter latitude and longitude', 'attr'=>['placeholder'=>'40.7306,-73.9352']])
+        ;
     }
     
     /**

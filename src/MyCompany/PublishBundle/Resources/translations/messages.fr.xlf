@@ -9,7 +9,11 @@
             <trans-unit id="publish_login">            
                 <source>publish.login</source>
                 <target>s'identifier</target>                
-            </trans-unit>            
+            </trans-unit>         
+            <trans-unit id="back_to_list">
+                <source>publish.back_to_list</source>
+                <target>Retour à la liste</target>
+            </trans-unit>                  
             <trans-unit id="home_page">
                 <source>Homepage</source>
                 <target>Page d'accueil</target>

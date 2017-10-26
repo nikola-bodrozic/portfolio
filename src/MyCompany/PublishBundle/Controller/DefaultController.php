@@ -25,10 +25,12 @@ class DefaultController extends Controller
      */
     public function indexAction($last, $_locale, $slug = "")
     {
-        if($last == "post_show" || $last == "post_edit")
+        if($last == "post_show" || $last == "post_edit"){
             return $this->redirect($this->generateUrl($last, array('slug' => $slug)));
-        else
+        }
+        else{
             return $this->redirect($this->generateUrl($last));
+        }
     }
 
     /**

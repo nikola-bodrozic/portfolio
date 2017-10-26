@@ -1,29 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} :: {{ post.title }}{% endblock %}
+{% set latlang = post.latLang %}
+
+{% block title %} 
+    {{ parent() }} :: {{ post.title }} 
+{% endblock %}
+
 {% block meta %}
     {{ parent() }}
 {% endblock %}
 
 {% block body %}
-
     <h1>{{ post.title }}</h1>
-<br>
-<p>{{ "Published on" | trans }}: {% if post.created %}{{ post.created|date('Y-m-d H:i:s') }}{% endif %}</p>
-<br>
+
+    <p>{{ "Published on" | trans }}: {% if post.created %}{{ post.created|date('d. M Y.') }}{% endif %}</p>
+    <br>
     <table>
         <tbody>
         <tr>
-            <td>{{ post.text }}</td>
+            <td><div id="map" class="map-left"> {{ post.latLang }} </div> {{ post.text }}</td>
         </tr>
         </tbody>
     </table>
-    <br><br>
-
-
+    <br>
     <ul>
         <li>
-            <a href="{{ path('post_index') }}">Back to the list</a>
+            <a href="{{ path('post_index') }}">{{ 'publish.back_to_list' | trans }}</a>
         </li>
     </ul>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent()}}
+    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8ytq0lf_FAeZg9MKJwockhO73p1J93co"></script>
+    <script type="text/javascript">
+        function initialize() {
+            var myLatlng = new google.maps.LatLng({{latlang}});
+            var mapOptions = {
+                center: new google.maps.LatLng({{latlang}}),
+                zoom: 12,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(
+                    document.getElementById("map"),
+                    mapOptions
+            );
+            var marker1 = new google.maps.Marker({
+                position: myLatlng,
+                map: map
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 {% endblock %}

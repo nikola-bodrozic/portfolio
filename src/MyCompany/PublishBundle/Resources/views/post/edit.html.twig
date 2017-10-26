@@ -13,7 +13,12 @@
         {{ form_errors(edit_form.text) }}
         {{ form_widget(edit_form.text) }}
         <br>
+        {{ form_label(edit_form.latLang) }}
+        {{ form_errors(edit_form.latLang) }}
+        {{ form_widget(edit_form.latLang) }}        
+        <br>
         <input type="submit" class="btn btn-primary"  value="Update" />
+        
     {{ form_end(edit_form) }}
 
     <br>
