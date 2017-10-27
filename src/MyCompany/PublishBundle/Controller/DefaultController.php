@@ -34,6 +34,15 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/giff/{_locale}/{term}", name="redir_match_language", defaults={"_locale" = "en"}, requirements={"_locale": "en|fr|nl"})
+     */
+    public function redirAction($_locale,$term)
+    {
+        //var_dump($term); die;
+        return $this->redirect($this->generateUrl('post_match',['_locale' => $_locale, 'term' => $term]));
+    }    
+    // $this->generateUrl('my_slug',array('page_slug'=>'my_slug', 'param' => '123'))
+    /**
      * @Route("/diff2/{_locale}/ind/", name="startpage3", defaults={"_locale" = "en"}, requirements={"_locale": "en|fr|nl"})
      */
     public function indAction()

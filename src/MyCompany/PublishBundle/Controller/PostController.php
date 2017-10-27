@@ -40,31 +40,36 @@ class PostController extends Controller
      * MySQL Match Agains in Natural Mode
      *
      * @Route("/{_locale}/post/match", name="post_match", defaults={"_locale": "en"}, requirements={"_locale": "en|fr|nl" })
-     * @Method("POST")
+     * @Method("GET")
      */
     public function matchAction(Request $request)
     {       
-        $keyWords = $request->request->get('term');
+        $keyWords = $request->query->get('term');
+        $allParams = $request->query->all();
         $keyWords = trim($keyWords);
         $keyWords = explode(' ', $keyWords);
 
         $fts = "";
-
+        $passToRedir = "";
         foreach($keyWords as $k) {
             $fts .= "'".$k."',";
+            $passToRedir .= $k.' ';
         }
+        
         $fts = substr($fts, 0, -1);
-
+        $passToRedir = substr($passToRedir, 0, -1);        
+        
         $repository = $this->getDoctrine()->getRepository(Post::class);
         $result = $repository->createQueryBuilder('p')
             ->addSelect("MATCH_AGAINST (p.title, p.text, :searchterm 'IN NATURAL MODE') as score")
+            ->add('where', 'MATCH_AGAINST(p.title, p.text, :searchterm) > 0')
             ->setParameter('searchterm', $fts)
             ->orderBy('score', 'desc')
             ->getQuery()
             ->getResult();  
 
         $this->hiLite($keyWords, $result);
-        return $this->render('PublishBundle:post:search.html.twig', array('searchRes' => $result, 'what'=> $keyWords));                                      
+        return $this->render('PublishBundle:post:search.html.twig', array('searchRes' => $result, 'keyWords'=> $fts, 'ptr'=> $passToRedir ));                                      
     }
 
     /**

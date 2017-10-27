@@ -7,14 +7,19 @@
 {% endblock %}
 
 {% block body %}
-	{{ dump (what)}}
-    <dl>
-    {% for res in searchRes %}
-	    {% if res.score != 0 %}
-	        <dt><h3>{{ res[0].title | raw }}</h3></dt>
-	        <dd>{{ res[0].text | raw }}</dd>
-	        <hr>
-	    {% endif %}
-    {% endfor %}
-	</dl>
+	{% if searchRes is empty %}
+            <p> no search results for {{ keyWords }} </p>
+        {% else %}    
+        <dl>
+        <h3> There are {{ searchRes|length }}  results for keyword(s) {{ keyWords }}</h3>
+        {% for res in searchRes %}
+                    <dt>
+                        <h3>{{ res[0].title | raw }}</h3>
+                        <p>{{ "Published on" | trans }}: {% if res[0].created %}{{ res[0].created|date('d. M Y.') }}{% endif %}</p>
+                    </dt>
+                    <dd>{{ res[0].text | raw }}</dd>
+                    <hr>
+        {% endfor %}
+        </dl>
+        {% endif %}
 {% endblock %}
