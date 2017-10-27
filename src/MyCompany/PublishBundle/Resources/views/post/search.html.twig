@@ -24,3 +24,30 @@
             </dl>
         {% endif %}
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent()}}
+    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8ytq0lf_FAeZg9MKJwockhO73p1J93co"></script>
+    {% for res in searchRes %}    
+        <script type="text/javascript">
+            function initialize{{res[0].id}}() {
+                var myLatlng{{res[0].id}} = new google.maps.LatLng({{res[0].latLang}});
+                var mapOptions = {
+                    center: new google.maps.LatLng({{res[0].latLang}}),
+                    zoom: 12,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map{{res[0].id}} = new google.maps.Map(
+                        document.getElementById("map{{res[0].id}}"),
+                        mapOptions
+                );
+                var marker1 = new google.maps.Marker({
+                    position: myLatlng{{res[0].id}},
+                    map: map{{res[0].id}}
+                });
+            }
+            google.maps.event.addDomListener(window, 'load', initialize{{res[0].id}});
+        </script>
+    {% endfor%}    
+{% endblock %}
