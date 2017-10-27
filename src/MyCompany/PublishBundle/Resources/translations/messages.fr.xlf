@@ -4,7 +4,7 @@
         <body>
             <trans-unit id="plural_trans">
                 <source>plural_trans</source>
-                <target>{1} un résultat pour le mot-clé: |]2,Inf] %numS% résultats pour les mots-clés:</target>
+                <target>{1} un résultat pour le mot-clé: |]1,Inf] %numS% résultats pour les mots-clés:</target>
             </trans-unit>  
             <trans-unit id="there_are_num_search_res">
                 <source>There are %numS% results for keyword(s) %keyWords%</source>

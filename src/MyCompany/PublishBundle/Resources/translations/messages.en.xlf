@@ -2,10 +2,12 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <!-- placeholder for number that determines if its a plural and argument numS -->
             <trans-unit id="plural_trans">
                 <source>plural_trans</source>
-                <target>{1} one result for keyword:|]2,Inf] %numS% results for keywords:</target>
-            </trans-unit>              
+                <target>{1}one result for keyword:|]1,Inf] %numS% results for keywords:</target>
+            </trans-unit>   
+            <!-- two arguments numS and keyWords -->
             <trans-unit id="there_are_num_search_res">
                 <source>There are %numS% results for keyword(s) %keyWords%</source>
                 <target>There are %numS% results for keyword(s) %keyWords%</target>
