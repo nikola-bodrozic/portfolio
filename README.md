@@ -12,6 +12,7 @@
 in console create user **admin** with password **123** and assign `ROLE_ADMIN`
 * `php app/console fos:user:create admin admin@example.com 123`
 * `php app/console fos:user:promote admin ROLE_ADMIN`
+* now you have credentials to create users on web site by clicking on register in menu
 
 #### Description
 * Admin creates users
