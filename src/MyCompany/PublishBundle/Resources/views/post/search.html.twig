@@ -12,7 +12,7 @@
         {% else %}
             {% set numS = searchRes|length %}
             <dl>
-            <h3>{% trans %} There are %numS% results for keyword(s) %keyWords% {% endtrans %}</h3>
+            <h3>{% transchoice numS with {'%numS%': numS} %}plural_trans{% endtranschoice %} {{ keyWords }}</h3>
             {% for res in searchRes %}
                         <dt>
                             <h3>{{ res[0].title | raw }}</h3>
