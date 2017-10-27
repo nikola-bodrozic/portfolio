@@ -45,7 +45,6 @@ class PostController extends Controller
     public function matchAction(Request $request)
     {       
         $keyWords = $request->query->get('term');
-        $allParams = $request->query->all();
         $keyWords = trim($keyWords);
         $keyWords = explode(' ', $keyWords);
 
@@ -69,7 +68,15 @@ class PostController extends Controller
             ->getResult();  
 
         $this->hiLite($keyWords, $result);
-        return $this->render('PublishBundle:post:search.html.twig', array('searchRes' => $result, 'keyWords'=> $fts, 'ptr'=> $passToRedir ));                                      
+           
+        return $this->render(
+             'PublishBundle:post:search.html.twig', 
+                array(
+                    'searchRes' => $result, 
+                    'keyWords'=> $fts, 
+                    'ptr'=> $passToRedir
+                )
+        );                                      
     }
 
     /**

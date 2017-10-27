@@ -2,6 +2,14 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="there_are_num_search_res">
+                <source>There are %numS% results for keyword(s) %keyWords%</source>
+                <target>Il y a %numS% de résultats pour les mots-clés %keyWords%</target>
+            </trans-unit>              
+            <trans-unit id="no_search_results">
+                <source>no search results for %keyWords%</source>
+                <target>aucun résultat de recherche pour %keyWords%</target>
+            </trans-unit>           
             <trans-unit id="post_list">
                 <source>publish.List_messages</source>
                 <target>Liste des messages</target>
