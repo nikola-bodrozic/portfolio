@@ -18,7 +18,7 @@
                             <h3>{{ res[0].title | raw }}</h3>
                             <p>{{ "Published on" | trans }}: {% if res[0].created %}{{ res[0].created|date('d. M Y.') }}{% endif %}</p>
                         </dt>
-                        <dd>{{ res[0].text | raw }}</dd>
+                        <dd><div id="map{{res[0].id}}" class="map-left"> {{ res[0].latLang }} </div> {{ res[0].text | raw }}</dd>
                         <hr>
             {% endfor %}
             </dl>
