@@ -38,7 +38,7 @@
             </trans-unit>
             <trans-unit id="language">
                 <source>Language</source>
-                <target>Language</target>
+                <target><![CDATA[<span class="lang-sm lang-lbl" lang="en"></span>]]></target>
             </trans-unit>
             <trans-unit id="Posts">
                 <source>Posts</source>
